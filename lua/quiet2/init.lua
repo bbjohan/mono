@@ -141,6 +141,19 @@ local groups = {
   WildMenu =      { fg = c.blue_picton,     bg = c.black_jet,     style = "bold" },
   -- stylua: ignore end
 
+  -- =========================================================================
+  -- File Tree Integrations (NvimTree & NeoTree)
+  -- Questi linkano i colori dello sfondo del tree a quelli normali dell'editor
+  -- =========================================================================
+  NvimTreeNormal = { link = "Normal" },
+  NvimTreeNormalNC = { link = "Normal" },
+  NvimTreeEndOfBuffer = { link = "EndOfBuffer" },
+  
+  NeoTreeNormal = { link = "Normal" },
+  NeoTreeNormalNC = { link = "Normal" },
+  NeoTreeEndOfBuffer = { link = "EndOfBuffer" },
+  -- =========================================================================
+
   Terminal = { link = "Normal" },
   StatusLineTerm = { link = "StatusLine" },
   StatusLineTermNC = { link = "StatusLineNC" },
