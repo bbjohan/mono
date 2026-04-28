@@ -82,6 +82,10 @@ local groups = {
   MoreMsg =       { fg = c.platinium,       bg = c.none },
   NonText =       { fg = c.gray_dim,        bg = c.none },
 
+  -- Aggiunti i gruppi per le finestre fluttuanti (spesso usati dai file tree)
+  NormalFloat =   { fg = c.fg,              bg = c.bg },
+  FloatBorder =   { fg = c.gray_dim,        bg = c.bg },
+
   Pmenu =         { fg = c.gray_silver,     bg = c.black_jet },
   PmenuExtra =    { fg = c.black_jet,       bg = c.gray_silver },
   PmenuKind =     { fg = c.black_jet,       bg = c.gray_silver,   style = "bold" },
@@ -125,10 +129,6 @@ local groups = {
   -- stylua: ignore end
 
   -- =========================================================================
-  -- File Tree Integrations (NvimTree & NeoTree)
-  -- Questi linkano i colori dello sfondo del tree a quelli normali dell'editor
-  -- =========================================================================
--- =========================================================================
   -- File Tree Integrations (NvimTree & NeoTree)
   -- Assegniamo esplicitamente il background (c.bg) per forzare il grigio ovunque
   -- =========================================================================
