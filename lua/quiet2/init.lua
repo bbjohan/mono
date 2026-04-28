@@ -1,20 +1,3 @@
--- written thanks to an awesome NeovimConf 2022 video by DevOnDuty
--- link to talk: https://www.youtube.com/watch?v=PdaObkGazoU
-
--- syntax hightlight group: https://neovim.io/doc/user/syntax.html#highlight-groups
---
--- Note: To find which highlight name you need to use, put the
---   cursor over it and type `:Inspect`.
-
--- tip: to debug, use vim.inspect()
-
--- debug/log with plenary, see with :messages
--- local plenary = require('plenary')
--- local log = require('plenary.log').new {
---     plugin = 'telescope_docker',
---     level = 'info',
--- }
-
 local M = {}
 
 -- use https://coolors.co/ to adapt colors
@@ -100,12 +83,12 @@ local groups = {
   NonText =       { fg = c.gray_dim,        bg = c.none },
 
   Pmenu =         { fg = c.gray_silver,     bg = c.black_jet },
-  PmenuExtra =    { fg = c.black,           bg = c.gray_silver },
-  PmenuKind =     { fg = c.black,           bg = c.gray_silver,   style = "bold" },
-  PmenuSbar =     { fg = c.black,           bg = c.gray_davy },
-  PmenuSel =      { fg = c.black,           bg = c.platinium },
-  PmenuExtraSel = { fg = c.black,           bg = c.platinium },
-  PmenuKindSel =  { fg = c.black,           bg = c.platinium },
+  PmenuExtra =    { fg = c.black_jet,           bg = c.gray_silver },
+  PmenuKind =     { fg = c.black_jet,           bg = c.gray_silver,   style = "bold" },
+  PmenuSbar =     { fg = c.black_jet,           bg = c.gray_davy },
+  PmenuSel =      { fg = c.black_jet,           bg = c.platinium },
+  PmenuExtraSel = { fg = c.black_jet,           bg = c.platinium },
+  PmenuKindSel =  { fg = c.black_jet,           bg = c.platinium },
   PmenuThumb =    { fg = c.platinium,       bg = c.platinium },
 
   Question =      { fg = c.platinium,       bg = c.none },
