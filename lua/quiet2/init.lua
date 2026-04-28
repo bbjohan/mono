@@ -128,16 +128,25 @@ local groups = {
   -- File Tree Integrations (NvimTree & NeoTree)
   -- Questi linkano i colori dello sfondo del tree a quelli normali dell'editor
   -- =========================================================================
-  NvimTreeNormal = { link = "Normal" },
-  NvimTreeNormalNC = { link = "Normal" },
-  NvimTreeEndOfBuffer = { link = "EndOfBuffer" },
+-- =========================================================================
+  -- File Tree Integrations (NvimTree & NeoTree)
+  -- Assegniamo esplicitamente il background (c.bg) per forzare il grigio ovunque
+  -- =========================================================================
+  NvimTreeNormal = { fg = c.fg, bg = c.bg },
+  NvimTreeNormalNC = { fg = c.fg, bg = c.bg },
+  NvimTreeEndOfBuffer = { fg = c.gray_dim, bg = c.bg },
+  NvimTreeSignColumn = { fg = c.platinium, bg = c.bg },
+  NvimTreeWinSeparator = { fg = c.gray_dim, bg = c.bg },
   
-  NeoTreeNormal = { link = "Normal" },
-  NeoTreeNormalNC = { link = "Normal" },
-  NeoTreeEndOfBuffer = { link = "EndOfBuffer" },
+  NeoTreeNormal = { fg = c.fg, bg = c.bg },
+  NeoTreeNormalNC = { fg = c.fg, bg = c.bg },
+  NeoTreeEndOfBuffer = { fg = c.gray_dim, bg = c.bg },
+  NeoTreeSignColumn = { fg = c.platinium, bg = c.bg },
+  NeoTreeWinSeparator = { fg = c.gray_dim, bg = c.bg },
   -- =========================================================================
 
-  Terminal = { link = "Normal" },
+  Terminal = { fg = c.fg, bg = c.bg }, -- Forziamo anche il terminale esplicitamente
+
   StatusLineTerm = { link = "StatusLine" },
   StatusLineTermNC = { link = "StatusLineNC" },
   MessageWindow = { link = "Pmenu" },
