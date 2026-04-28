@@ -6,12 +6,12 @@ local c = {
   platinium = "#dadada",
   black = "#101010",
   black_eerie = "#1c1c1c",
-  -- black_jet = "#303030",
-  black_jet = "#404040",
+  -- black_jet = "#404040", -- Colore originale
+  black_jet = "#555555", -- Schiarito per non confondersi con il nuovo sfondo
 
   comment = "#a8a8a8",
   fg = "#dadada",
-  bg = "#1c1c1c",
+  bg = "#404040", -- <-- Tutto lo sfondo impostato sul tuo grigio #404040
   bg_alt = "#303030",
 
   blue_rudy = "#87afd7",
@@ -83,12 +83,12 @@ local groups = {
   NonText =       { fg = c.gray_dim,        bg = c.none },
 
   Pmenu =         { fg = c.gray_silver,     bg = c.black_jet },
-  PmenuExtra =    { fg = c.black_jet,           bg = c.gray_silver },
-  PmenuKind =     { fg = c.black_jet,           bg = c.gray_silver,   style = "bold" },
-  PmenuSbar =     { fg = c.black_jet,           bg = c.gray_davy },
-  PmenuSel =      { fg = c.black_jet,           bg = c.platinium },
-  PmenuExtraSel = { fg = c.black_jet,           bg = c.platinium },
-  PmenuKindSel =  { fg = c.black_jet,           bg = c.platinium },
+  PmenuExtra =    { fg = c.black_jet,       bg = c.gray_silver },
+  PmenuKind =     { fg = c.black_jet,       bg = c.gray_silver,   style = "bold" },
+  PmenuSbar =     { fg = c.black_jet,       bg = c.gray_davy },
+  PmenuSel =      { fg = c.black_jet,       bg = c.platinium },
+  PmenuExtraSel = { fg = c.black_jet,       bg = c.platinium },
+  PmenuKindSel =  { fg = c.black_jet,       bg = c.platinium },
   PmenuThumb =    { fg = c.platinium,       bg = c.platinium },
 
   Question =      { fg = c.platinium,       bg = c.none },
@@ -118,7 +118,7 @@ local groups = {
   Type =          { fg = c.platinium,       bg = c.none },
   Underlined =    { fg = c.platinium,       bg = c.none },
   VertSplit =     { fg = c.gray_dim,        bg = c.black_jet },
-  Visual =        { fg = c.black_jet,     bg = c.blue_rudy },
+  Visual =        { fg = c.black_jet,       bg = c.blue_rudy },
   VisualNOS =     { fg = c.none,            bg = c.black_jet },
   WarningMsg =    { fg = c.platinium,       bg = c.none },
   WildMenu =      { fg = c.blue_picton,     bg = c.black_jet,     style = "bold" },
@@ -176,9 +176,6 @@ M.groups = groups
 M.colors = c
 
 function M.setup(opts)
-  -- print("yay made it!!")
-  -- local opts = opts or {}
-
   M.colorscheme()
 end
 
