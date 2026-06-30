@@ -6,13 +6,15 @@ local c = {
   platinium = "#dadada",
   black = "#101010",
   black_eerie = "#1c1c1c",
-  -- black_jet = "#404040", -- Colore originale
-  black_jet = "#555555", -- Schiarito per non confondersi con il nuovo sfondo
+  black_jet = "#555555", 
 
   comment = "#a8a8a8",
   fg = "#dadada",
-  bg = "#404040", -- <-- Tutto lo sfondo impostato sul tuo grigio #404040
-  bg_alt = "#303030",
+  bg = "#1e1e1e", -- <-- Inserisci qui il nuovo grigio scuro
+  bg_alt = "#171717", -- (Opzionale) Scurisci anche questo per proporzione
+  
+  -- ... resto dei colori ...
+}
 
   blue_rudy = "#87afd7",
   blue_picton = "#00afff",
