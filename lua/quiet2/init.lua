@@ -1,36 +1,24 @@
 local M = {}
 
--- use https://coolors.co/ to adapt colors
 local c = {
   none = "NONE",
-  platinium = "#dadada",
-  black = "#101010",
-  black_eerie = "#1c1c1c",
-  black_jet = "#555555", 
-
-  comment = "#a8a8a8",
-  fg = "#dadada",
-  bg = "#1e1e1e", -- <-- Inserisci qui il nuovo grigio scuro
-  bg_alt = "#171717", -- (Opzionale) Scurisci anche questo per proporzione
   
-  -- ... resto dei colori ...
-}
+  -- La tua nuova palette
+  bg = "#0F0F0F",           -- Sfondo Primario
+  bg_alt = "#161616",       -- Superfici / Barre
+  ui_details = "#494949",   -- Dettagli UI
+  fg_secondary = "#5A5A5A", -- Testo Secondario / Commenti
+  fg = "#D1D1D1",           -- Testo Primario / Accento
 
+  -- Colori di fallback/utility per funzionalità specifiche (es. Diff, Spell)
   blue_rudy = "#87afd7",
   blue_picton = "#00afff",
   blue_france = "#0087d7",
-
-  gray_davy = "#585858",
-  gray_dim = "#707070",
-  gray_silver = "#a8a8a8",
-
   green_light_sea = "#00afaf",
   green_kelly = "#00af00",
   aquamarine = "#00ffaf",
-
   mauve_french = "#d787d7",
   orange_web = "#ffaf00",
-
   pink_ultra = "#ff5fff",
   rose_dogwood = "#d7005f",
   red_indian = "#d75f5f",
@@ -55,99 +43,97 @@ local default_fg_bg = { fg = c.fg, bg = c.bg }
 local groups = {
   Normal = default_fg_bg,
   -- stylua: ignore start
-  ColorColumn =   { fg = c.none,            bg = c.bg_alt },
-  Conceal =       { fg = c.none,            bg = c.none },
-  CurSearch =     { fg = c.pink_ultra,      bg = c.black_jet },
-  Cursor =        { fg = c.none,            bg = c.none,          style = "reverse" },
-  CursorColumn =  { fg = c.none,            bg = c.black },
-  CursorLine =    { fg = c.none,            bg = c.black_jet },
-  CursorLineNr =  { fg = c.platinium,       bg = c.black },
+  ColorColumn =    { fg = c.none,            bg = c.bg_alt },
+  Conceal =        { fg = c.none,            bg = c.none },
+  CurSearch =      { fg = c.bg,              bg = c.fg },
+  Cursor =         { fg = c.none,            bg = c.none,           style = "reverse" },
+  CursorColumn =   { fg = c.none,            bg = c.bg_alt },
+  CursorLine =     { fg = c.none,            bg = c.bg_alt },
+  CursorLineNr =   { fg = c.fg,              bg = c.bg_alt },
 
-  DiffAdd =       { fg = c.green_kelly,     bg = c.black_jet,     style = "reverse" },
-  DiffChange =    { fg = c.blue_rudy,       bg = c.black_jet,     style = "reverse" },
-  DiffDelete =    { fg = c.red_indian,      bg = c.black_jet,     style = "reverse" },
-  DiffText =      { fg = c.mauve_french,    bg = c.black_jet,     style = "reverse" },
-  SpellBad =      { fg = c.rose_dogwood,    bg = c.none,          sp = c.rose_dogwood,    style = "undercurl" },
-  SpellCap =      { fg = c.blue_france,     bg = c.none,          sp = c.blue_france,     style = "undercurl" },
-  SpellLocal =    { fg = c.mauve_french,    bg = c.none,          sp = c.mauve_french,    style = "undercurl" },
-  SpellRare =     { fg = c.green_light_sea, bg = c.none,          sp = c.green_light_sea, style = "undercurl" },
+  DiffAdd =        { fg = c.green_kelly,      bg = c.bg_alt,        style = "reverse" },
+  DiffChange =     { fg = c.blue_rudy,       bg = c.bg_alt,        style = "reverse" },
+  DiffDelete =     { fg = c.red_indian,      bg = c.bg_alt,        style = "reverse" },
+  DiffText =       { fg = c.mauve_french,    bg = c.bg_alt,        style = "reverse" },
+  SpellBad =       { fg = c.rose_dogwood,    bg = c.none,          sp = c.rose_dogwood,    style = "undercurl" },
+  SpellCap =       { fg = c.blue_france,     bg = c.none,          sp = c.blue_france,     style = "undercurl" },
+  SpellLocal =     { fg = c.mauve_french,    bg = c.none,          sp = c.mauve_french,    style = "undercurl" },
+  SpellRare =      { fg = c.green_light_sea, bg = c.none,          sp = c.green_light_sea, style = "undercurl" },
 
-  Directory =     { fg = c.platinium,       bg = c.none },
-  EndOfBuffer =   { fg = c.gray_dim,        bg = c.none },
-  ErrorMsg =      { fg = c.platinium,       bg = c.black_jet,     style = "reverse" },
-  FoldColumn =    { fg = c.gray_dim,        bg = c.none },
-  Folded =        { fg = c.gray_dim,        bg = c.black_jet },
-  IncSearch =     { fg = c.orange_web,      bg = c.black_jet },
-  LineNr =        { fg = c.gray_silver,     bg = c.none },
-  MatchParen =    { fg = c.platinium,       bg = c.pink_ultra,    style = "bold" },
-  ModeMsg =       { fg = c.platinium,       bg = c.none },
-  MoreMsg =       { fg = c.platinium,       bg = c.none },
-  NonText =       { fg = c.gray_dim,        bg = c.none },
+  Directory =      { fg = c.fg,              bg = c.none },
+  EndOfBuffer =    { fg = c.ui_details,      bg = c.none },
+  ErrorMsg =       { fg = c.fg,              bg = c.bg_alt,        style = "reverse" },
+  FoldColumn =     { fg = c.fg_secondary,    bg = c.none },
+  Folded =         { fg = c.fg_secondary,    bg = c.bg_alt },
+  IncSearch =      { fg = c.bg,              bg = c.fg },
+  LineNr =         { fg = c.ui_details,      bg = c.none },
+  MatchParen =     { fg = c.bg,              bg = c.fg,            style = "bold" },
+  ModeMsg =        { fg = c.fg,              bg = c.none },
+  MoreMsg =        { fg = c.fg,              bg = c.none },
+  NonText =        { fg = c.ui_details,      bg = c.none },
 
-  -- Aggiunti i gruppi per le finestre fluttuanti (spesso usati dai file tree)
-  NormalFloat =   { fg = c.fg,              bg = c.bg },
-  FloatBorder =   { fg = c.gray_dim,        bg = c.bg },
+  NormalFloat =    { fg = c.fg,              bg = c.bg_alt },
+  FloatBorder =    { fg = c.ui_details,      bg = c.bg_alt },
 
-  Pmenu =         { fg = c.gray_silver,     bg = c.black_jet },
-  PmenuExtra =    { fg = c.black_jet,       bg = c.gray_silver },
-  PmenuKind =     { fg = c.black_jet,       bg = c.gray_silver,   style = "bold" },
-  PmenuSbar =     { fg = c.black_jet,       bg = c.gray_davy },
-  PmenuSel =      { fg = c.black_jet,       bg = c.platinium },
-  PmenuExtraSel = { fg = c.black_jet,       bg = c.platinium },
-  PmenuKindSel =  { fg = c.black_jet,       bg = c.platinium },
-  PmenuThumb =    { fg = c.platinium,       bg = c.platinium },
+  Pmenu =          { fg = c.fg,              bg = c.bg_alt },
+  PmenuExtra =     { fg = c.fg_secondary,    bg = c.bg_alt },
+  PmenuKind =      { fg = c.fg,              bg = c.bg_alt,        style = "bold" },
+  PmenuSbar =      { fg = c.none,            bg = c.ui_details },
+  PmenuSel =       { fg = c.bg,              bg = c.fg },
+  PmenuExtraSel =  { fg = c.bg,              bg = c.fg },
+  PmenuKindSel =   { fg = c.bg,              bg = c.fg },
+  PmenuThumb =     { fg = c.none,            bg = c.fg_secondary },
 
-  Question =      { fg = c.platinium,       bg = c.none },
-  QuickFixLine =  { fg = c.pink_ultra,      bg = c.black_jet },
-  Search =        { fg = c.blue_picton,     bg = c.black_jet,     style = "reverse" },
-  SignColumn =    { fg = c.platinium,       bg = c.none },
-  SpecialKey =    { fg = c.gray_dim,        bg = c.none,          style = "bold" },
+  Question =       { fg = c.fg,              bg = c.none },
+  QuickFixLine =   { fg = c.bg,              bg = c.fg },
+  Search =         { fg = c.bg,              bg = c.fg },
+  SignColumn =     { fg = c.fg,              bg = c.none },
+  SpecialKey =     { fg = c.ui_details,      bg = c.none,          style = "bold" },
 
-  Comment =       { fg = c.comment,         bg = c.none },
-  Constant =      { fg = c.gray_silver,     bg = c.none },
-  CursorIM =      { fg = c.black_jet,       bg = c.green_light_sea },
-  Error =         { fg = c.red_folly,       bg = c.black_jet,     style = "bold" },
-  Identifier =    { fg = c.platinium,       bg = c.none },
-  Ignore =        { fg = c.platinium,       bg = c.none },
-  PreProc =       { fg = c.platinium,       bg = c.none },
-  Special =       { fg = c.platinium,       bg = c.none },
-  Statement =     { fg = c.platinium,       bg = c.none },
-  StatusLine =    { fg = c.black_jet,       bg = c.platinium,     style = "bold" },
-  StatusLineNC =  { fg = c.gray_dim,        bg = c.black_jet },
-  TabLine =       { fg = c.gray_dim,        bg = c.black_jet },
-  TabLineFill =   { fg = c.platinium,       bg = c.none },
-  TabLineSel =    { fg = c.black_jet,       bg = c.platinium },
-  Title =         { fg = c.none,            bg = c.none },
-  Todo =          { fg = c.aquamarine,      bg = c.none },
-  ToolbarButton = { fg = c.platinium,       bg = c.black_jet,     style = "bold" },
-  ToolbarLine =   { fg = c.none,            bg = c.black_jet },
-  Type =          { fg = c.platinium,       bg = c.none },
-  Underlined =    { fg = c.platinium,       bg = c.none },
-  VertSplit =     { fg = c.gray_dim,        bg = c.black_jet },
-  Visual =        { fg = c.black_jet,       bg = c.blue_rudy },
-  VisualNOS =     { fg = c.none,            bg = c.black_jet },
-  WarningMsg =    { fg = c.platinium,       bg = c.none },
-  WildMenu =      { fg = c.blue_picton,     bg = c.black_jet,     style = "bold" },
+  Comment =        { fg = c.fg_secondary,    bg = c.none },
+  Constant =       { fg = c.fg,              bg = c.none },
+  CursorIM =       { fg = c.bg_alt,          bg = c.fg },
+  Error =          { fg = c.red_folly,       bg = c.bg_alt,        style = "bold" },
+  Identifier =     { fg = c.fg,              bg = c.none },
+  Ignore =         { fg = c.fg,              bg = c.none },
+  PreProc =        { fg = c.fg,              bg = c.none },
+  Special =        { fg = c.fg,              bg = c.none },
+  Statement =      { fg = c.fg,              bg = c.none },
+  StatusLine =     { fg = c.fg,              bg = c.bg_alt,        style = "bold" },
+  StatusLineNC =   { fg = c.fg_secondary,    bg = c.bg_alt },
+  TabLine =        { fg = c.fg_secondary,    bg = c.bg_alt },
+  TabLineFill =    { fg = c.none,            bg = c.bg_alt },
+  TabLineSel =     { fg = c.bg,              bg = c.fg },
+  Title =          { fg = c.none,            bg = c.none },
+  Todo =           { fg = c.fg,              bg = c.none,          style = "bold" },
+  ToolbarButton =  { fg = c.fg,              bg = c.bg_alt,        style = "bold" },
+  ToolbarLine =    { fg = c.none,            bg = c.bg_alt },
+  Type =           { fg = c.fg,              bg = c.none },
+  Underlined =     { fg = c.fg,              bg = c.none },
+  VertSplit =      { fg = c.ui_details,      bg = c.bg_alt },
+  Visual =         { fg = c.none,            bg = c.ui_details },
+  VisualNOS =      { fg = c.none,            bg = c.ui_details },
+  WarningMsg =     { fg = c.orange_web,      bg = c.none },
+  WildMenu =       { fg = c.bg,              bg = c.fg,            style = "bold" },
   -- stylua: ignore end
 
   -- =========================================================================
   -- File Tree Integrations (NvimTree & NeoTree)
-  -- Assegniamo esplicitamente il background (c.bg) per forzare il grigio ovunque
   -- =========================================================================
-  NvimTreeNormal = { fg = c.fg, bg = c.bg },
-  NvimTreeNormalNC = { fg = c.fg, bg = c.bg },
-  NvimTreeEndOfBuffer = { fg = c.gray_dim, bg = c.bg },
-  NvimTreeSignColumn = { fg = c.platinium, bg = c.bg },
-  NvimTreeWinSeparator = { fg = c.gray_dim, bg = c.bg },
+  NvimTreeNormal = { fg = c.fg, bg = c.bg_alt },
+  NvimTreeNormalNC = { fg = c.fg, bg = c.bg_alt },
+  NvimTreeEndOfBuffer = { fg = c.ui_details, bg = c.bg_alt },
+  NvimTreeSignColumn = { fg = c.fg, bg = c.bg_alt },
+  NvimTreeWinSeparator = { fg = c.ui_details, bg = c.bg_alt },
   
-  NeoTreeNormal = { fg = c.fg, bg = c.bg },
-  NeoTreeNormalNC = { fg = c.fg, bg = c.bg },
-  NeoTreeEndOfBuffer = { fg = c.gray_dim, bg = c.bg },
-  NeoTreeSignColumn = { fg = c.platinium, bg = c.bg },
-  NeoTreeWinSeparator = { fg = c.gray_dim, bg = c.bg },
+  NeoTreeNormal = { fg = c.fg, bg = c.bg_alt },
+  NeoTreeNormalNC = { fg = c.fg, bg = c.bg_alt },
+  NeoTreeEndOfBuffer = { fg = c.ui_details, bg = c.bg_alt },
+  NeoTreeSignColumn = { fg = c.fg, bg = c.bg_alt },
+  NeoTreeWinSeparator = { fg = c.ui_details, bg = c.bg_alt },
   -- =========================================================================
 
-  Terminal = { fg = c.fg, bg = c.bg }, -- Forziamo anche il terminale esplicitamente
+  Terminal = { fg = c.fg, bg = c.bg },
 
   StatusLineTerm = { link = "StatusLine" },
   StatusLineTermNC = { link = "StatusLineNC" },
