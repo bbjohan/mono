@@ -3,14 +3,12 @@ local M = {}
 local c = {
   none = "NONE",
   
-  -- La tua nuova palette
-  bg = "#0F0F0F",           -- Sfondo Primario
-  bg_alt = "#161616",       -- Superfici / Barre
-  ui_details = "#494949",   -- Dettagli UI
-  fg_secondary = "#5A5A5A", -- Testo Secondario / Commenti
-  fg = "#D1D1D1",           -- Testo Primario / Accento
+  bg = "#0F0F0F",
+  bg_alt = "#161616",
+  ui_details = "#494949",  
+  fg_secondary = "#5A5A5A"
+  fg = "#D1D1D1",           
 
-  -- Colori di fallback/utility per funzionalità specifiche (es. Diff, Spell)
   blue_rudy = "#87afd7",
   blue_picton = "#00afff",
   blue_france = "#0087d7",
@@ -39,10 +37,9 @@ end
 
 local default_fg_bg = { fg = c.fg, bg = c.bg }
 
--- LuaFormatter off
 local groups = {
   Normal = default_fg_bg,
-  -- stylua: ignore start
+
   ColorColumn =    { fg = c.none,            bg = c.bg_alt },
   Conceal =        { fg = c.none,            bg = c.none },
   CurSearch =      { fg = c.bg,              bg = c.fg },
@@ -115,11 +112,7 @@ local groups = {
   VisualNOS =      { fg = c.none,            bg = c.ui_details },
   WarningMsg =     { fg = c.orange_web,      bg = c.none },
   WildMenu =       { fg = c.bg,              bg = c.fg,            style = "bold" },
-  -- stylua: ignore end
 
-  -- =========================================================================
-  -- File Tree Integrations (NvimTree & NeoTree)
-  -- =========================================================================
   NvimTreeNormal = { fg = c.fg, bg = c.bg_alt },
   NvimTreeNormalNC = { fg = c.fg, bg = c.bg_alt },
   NvimTreeEndOfBuffer = { fg = c.ui_details, bg = c.bg_alt },
@@ -131,7 +124,6 @@ local groups = {
   NeoTreeEndOfBuffer = { fg = c.ui_details, bg = c.bg_alt },
   NeoTreeSignColumn = { fg = c.fg, bg = c.bg_alt },
   NeoTreeWinSeparator = { fg = c.ui_details, bg = c.bg_alt },
-  -- =========================================================================
 
   Terminal = { fg = c.fg, bg = c.bg },
 
@@ -167,7 +159,6 @@ local groups = {
   debugBreakpoint = { link = "ModeMsg" },
   debugPC = { link = "CursorLine" },
 }
--- LuaFormatter on
 
 M.groups = groups
 M.colors = c
@@ -182,7 +173,7 @@ function M.colorscheme()
     vim.api.nvim_command("syntax reset")
   end
   vim.o.termguicolors = true
-  vim.g.colors_name = "quiet2"
+  vim.g.colors_name = "mono"
   for group, color in pairs(M.groups) do
     M.highlight(group, color)
   end
